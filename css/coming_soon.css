@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+    /* Incluye padding y border en el ancho total */
+    margin: 0;
+    /* Elimina márgenes por defecto */
+    padding: 0;
+    /* Elimina padding por defecto */
+
+}
+
+body {
+    margin: 0;
+    /* Asegúrate de que el body no tenga margen */
+    font-family: "Catamaran", sans-serif;
+    font-size: 1rem;
+    /*lo iconos de font awson escalan con font size*/
+}
+
+strong {
+    font-weight: normal;
+    /*solo lo quiero la importancia semantica, no el resaltado visual*/
+}
+
+.grid_layout {
+    display: grid;
+    grid-template-areas:
+        "header "
+        "nav "
+        "main "
+        "footer";
+    grid-template-columns: 1fr 3;
+    grid-template-rows: auto 4.1125rem auto 1fr auto;
+    min-height: 100vh;
+}
+
+/*----------------style Header---------------*/
+.header {
+    grid-area: header;
+    display: flex;
+    /* lo uso para posicionar los elementos flex del header*/
+    justify-content: space-between;
+    /* Asegura que el logo y los enlaces estén a los lados */
+    background-color: #F4A300;
+    /* Amarillo Calabaza */
+
+}
+
+.logo {
+    display: flex;
+    /* Activa flexbox en el logo */
+    align-items: center;
+    /* Alinea verticalmente el logo */
+}
+
+.logo img {
+    margin-left: 1.30vw;
+    /*25px*/
+    max-width: 100%;
+    /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+    width: 40%;
+    /* Ajusta el tamaño según sea necesario */
+}
+
+.header_links {
+    display: flex;
+    /* Activa flexbox en los enlaces */
+    justify-content: flex-end;
+    /* Alinea los enlaces a la derecha */
+    align-items: center;
+    gap: 1.30vw;
+    /* Espacio entre los enlaces 25px*/
+    margin-right: 1.30vw;
+    /*25px*/
+}
+
+.header_links i {
+    color: #1D3557;
+
+}
+
+.header_links a {
+    text-decoration: none;
+    margin-bottom: 3.125vw;
+    /*60px*/
+
+}
+
+.header_links span {
+    margin-left: 0.78vw;
+    /*15px*/
+    font-size: 0.887rem;
+    /*15px*/
+    color: #1D3557;
+}
+
+/*----------------style Nav---------------*/
+.nav {
+    grid-area: nav;
+    background-color: #1D3557;
+    padding: 1.08vh;
+    /*10px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    /* Fija el elemento en la parte superior cuando se llega a su posición */
+    z-index: 10;
+    /* Asegura que el nav quede encima de otros elementos */
+}
+
+.nav_links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2.17vh;
+    /*20px*/
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 1.5em;
+    padding: 0.5vh 1vh;
+    /*5px 10px*/
+    transition: background-color 0.3s ease;
+    /* Efecto suave de transición al pasar el cursor */
+}
+
+.nav_links a:hover {
+    color: #F4A300;
+    /* Cambia el color de fondo al pasar el cursor por encima */
+}
+
+.search_bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.search_bar span {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+
+.search_bar i {
+    font-size: 1.8rem;
+    color: #FFF;
+}
+
+.search_bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    max-width: 600px;
+    /* Limita el ancho en pantallas grandes */
+}
+
+.search_bar input {
+    background-color: #FFF;
+    padding: 0.8rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 3rem;
+    flex-grow: 1;
+    /* Permite que el input ocupe el espacio disponible */
+    width: 100%;
+    /* Ancho completo del contenedor */
+    max-width: 500px;
+    /* Limita el ancho máximo en pantallas grandes */
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search_bar input:focus {
+    outline: none;
+    border-color: #F4A300;
+}
+
+/*-----------------Style main----------------*/
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centra el contenido en ambas direcciones */
+    padding: 2vw; /* Espaciado relativo */
+    gap: 2vw; /* Espaciado entre las columnas */
+    width: 100%;
+    background-image: url('../image/coming_soon.jpg'); /* Reemplaza con la ruta de tu imagen */
+}
+
+
+.coming_soon h1,.coming_soon p {
+    text-align: center;
+    color: #ffffff; /* Color del texto */
+    font-weight: bold;
+    padding: 10px; /* Espaciado alrededor del texto */
+    border-radius: 15px; /* Bordes redondeados (opcional) */
+    background-color: #00000091; /* Fondo negro con opacidad */
+    
+}
+
+.coming_soon p{
+    font-size: 2em;
+}
+
+.coming_soon h1{ 
+    font-size: 4em;
+}
+
+/*----------------style footer---------------*/
+.footer {
+    grid-area: footer;
+    background-color: #1D3557;
+    /* Color de fondo */
+    padding: 0.04vw;
+    /* 209xEspaciado interno */
+    text-align: center;
+    /* Alineación del texto */
+    color: #ffffff;
+    /* Color del texto */
+}
+
+.footer a {
+    font-size: 0.875em;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #F4A300;
+    /* Cambiar color al pasar el ratón */
+}
+
+.footer_content {
+    display: flex;
+    /* Usar flexbox para alinear los elementos */
+    justify-content: space-between;
+    /* Espacio entre secciones */
+    margin: 2.17vh 0;
+    /* 20px Margen superior e inferior */
+}
+
+.footer_content div {
+    flex: 1 1 0%;
+    /* Cada sección toma el mismo espacio */
+    margin-right: 2.17vh;
+    /* 20px Espacio entre secciones */
+}
+
+.footer_content h4 {
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 1.08vh;
+    /* 10px Espacio debajo del título */
+
+}
+
+.contact_info p {
+    font-size: 0.875em;
+    ;
+    /*14px*/
+    text-align: left;
+    margin-block-start: 2.74vh;
+    /*16px*/
+    text-align: center;
+    /* Centrar el título */
+}
+
+.social_media i {
+    font-size: 2em;
+    /*32px Ajusta el tamaño de los íconos */
+    padding: 10px;
+    /* 10px Espaciado entre íconos */
+}
+
+
+.quick_links ul li {
+    list-style-type: none;
+    margin-block-start: 1.74vh;
+    /*16px*/
+}
+
+.footer_bottom {
+    text-align: center;
+    /* Centrar el texto en la parte inferior */
+    color: #ffffff;
+    margin-top: 5.98vh;
+    /*55px*/
+    font-size: 0.75em;
+    /*12px*/
+}
+
+/*----------------style Diseño responsivo---------------*/
+
+@media (max-width: 768px) {
+    .grid_layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    .contact_izq,
+    .contact_der {
+        flex: 1 1 90%; /* Ajusta para ocupar casi todo el ancho en pantallas pequeñas */
+        margin-bottom: 2vw;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    body {
+        margin: 0;
+        /* Asegúrate de que el body no tenga margen */
+        font-size: 0.5em !important;
+        /*lo iconos de font awson escalan con font size*/
+    }
+
+    .grid_layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    .header_links {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    .search-bar input {
+        font-size: 1rem;
+        width: 90%;
+    }
+}

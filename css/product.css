@@ -1,0 +1,407 @@
+ * {
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    
+}
+
+body {
+    margin: 0; /* Asegúrate de que el body no tenga margen */
+    font-family: "Catamaran", sans-serif;
+    font-size: 1rem; /*lo iconos de font awson escalan con font size*/
+}
+
+strong{
+    font-weight: normal; /*solo lo quiero la importancia semantica, no el resaltado visual*/
+}
+
+.grid_layout {
+    display: grid;
+    grid-template-areas: 
+        "header "
+        "nav"
+        "main"
+        "footer ";
+        grid-template-columns: 1fr 3;
+        grid-template-rows: auto 4.1125rem auto 1fr auto;
+        min-height: 100vh;
+}
+/*----------------style Header---------------*/
+.header {
+    grid-area: header;
+    display: flex; /* lo uso para posicionar los elementos flex del header*/
+    justify-content: space-between; /* Asegura que el logo y los enlaces estén a los lados */
+    background-color: #F4A300; /* Amarillo Calabaza */
+    
+}
+
+.logo {
+    display: flex; /* Activa flexbox en el logo */
+    align-items: center; /* Alinea verticalmente el logo */
+}
+
+.logo img {
+    margin-left: 1.30vw; /*25px*/
+    max-width: 100%;/* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    width: 40%; /* Ajusta el tamaño según sea necesario */
+}
+
+.header_links {
+    display: flex; /* Activa flexbox en los enlaces */
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
+    align-items: center;
+    gap: 1.30vw; /* Espacio entre los enlaces 25px*/
+    margin-right: 1.30vw; /*25px*/
+}
+.header_links i{
+    color:#1D3557;
+    
+}
+.header_links a{
+    text-decoration: none; 
+    margin-bottom: 3.125vw; /*60px*/
+
+}
+.header_links span{
+    margin-left: 0.78vw; /*15px*/
+    font-size: 0.887rem; /*15px*/
+    color:#1D3557;
+}
+
+/*----------------style Nav---------------*/
+.nav {
+    grid-area: nav;
+    background-color: #1D3557;
+    padding: 1.08vh; /*10px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0; /* Fija el elemento en la parte superior cuando se llega a su posición */
+    z-index: 10; /* Asegura que el nav quede encima de otros elementos */
+}
+
+.nav_links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2.17vh; /*20px*/
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: white;
+    font-weight:lighter;
+    font-size: 1.5em;
+    padding: 0.5vh 1vh; /*5px 10px*/
+    transition: background-color 0.3s ease; /* Efecto suave de transición al pasar el cursor */
+}
+
+.nav_links a:hover {
+    color: #F4A300; /* Cambia el color de fondo al pasar el cursor por encima */
+}
+.search_bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
+.search_bar span {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+}
+
+.search_bar i {
+    font-size: 1.8rem;
+    color: #FFF;
+}
+
+.search_bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Limita el ancho en pantallas grandes */
+}
+
+.search_bar input {
+    background-color: #FFF;
+    padding: 0.8rem;
+    border: 0.1rem solid #ddd;
+    border-radius: 3rem;
+    flex-grow: 1; /* Permite que el input ocupe el espacio disponible */
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 500px; /* Limita el ancho máximo en pantallas grandes */
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search_bar input:focus {
+    outline: none;
+    border-color: #F4A300;
+}
+
+
+/*----------------style Main---------------*/
+.main {
+    grid-area: main;
+    background-color: #556B2F;
+    padding: 0.52vw; /*10px*/
+    display: flex; /* Cambiar a flexbox */
+    flex-direction: column; /* Asegura que las secciones se apilen verticalmente */
+    height: 100%; /* Asegura que el main ocupe todo el espacio del contenedor */
+    margin: 3vw 3vw 3vw 3vw; /*64 px x4*/
+    border-radius: 1.56vw; /*30px */
+}
+
+.main section {
+    background-color: #556B2F;
+    padding: 1.08vh; /*10px*/
+    border-radius: 0.54; /*5px*/
+    margin-bottom: 1.08vh; /* Espacio entre secciones 10px*/
+    flex: 1 1 0%; /* Permite que las secciones crezcan y ocupen el espacio disponible */
+    
+}
+.main {
+    color: #FFFFFF;
+    font-size: 1.25rem; /*20px*/
+}
+/*------------------Seccion 1--------------------------------*/
+#titulo_destacado {
+    text-align: center; /* Centra el texto */
+    position: relative; /* Posiciona el título de forma relativa para poder usar el pseudo-elemento */
+    margin-bottom: 1.04vw; /* Espacio debajo del título 10px*/
+}
+
+#titulo_destacado::after {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    display: block; /* Hace que sea un bloque */
+    width: 50%; /* Ancho de la línea (puedes ajustarlo) */
+    height: 0.10vw; /* Altura de la línea  2px */
+    background-color: white; /* Color de la línea */
+    margin: 1.04vw auto 0; /* Centra la línea y añade margen superior */
+}
+.section_1 {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas en pantallas pequeñas */
+    gap: 2.17vh; /* Espacio entre cada tarjeta 20px*/
+    justify-content: space-around; /* Distribuye las tarjetas uniformemente */
+    color: #FFFFFF
+}
+
+.product_card {
+    background-color: #fff;
+    border: 0.10vh solid #ddd; /*1px*/
+    border-radius: 8px; /*8px*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.78); /*0 4px 84px*/
+    overflow: hidden;
+    width: 18%; /* Ajusta el ancho de las tarjetas 300px*/
+    text-align: center;
+    padding: 1.08vh; /*10px*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product_card img {
+    width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+    height: auto;
+    border-bottom: 0.10vh solid #ddd; /*1px*/
+    margin-bottom: 1.08vh; /*10px*/
+}
+
+.product_card h4 {
+    font-size: 1.2em;
+    margin: 1.08vh; /*10px*/
+    color: #333;
+    min-height: 3.5vh; /* Ajusta altura */
+}
+
+.product_card p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 1.08vh 0;
+    min-height: 3.5vh; /* Ajusta la altura para mantener la consistencia entre tarjetas */
+}
+
+.product_card .price {
+    font-weight: bold;
+    min-height: 2.5vh; /* Asigna una altura mínima para el precio */
+}
+
+.product_card button {
+    background-color: #1D3557;
+    color: #fff;
+    border: none;
+    border-radius: 0.54vh; /*5px*/
+    padding: 1.08vh 2.17vh; /*10px 20px*/
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+    align-self: stretch; /* Asegura que el botón tenga el mismo ancho en todas las tarjetas */
+}
+
+
+.product_card button:hover {
+    background-color: #F4A300;
+}
+
+/*----------------style footer---------------*/
+.footer {
+    grid-area: footer;
+    background-color: #1D3557; /* Color de fondo */
+    padding: 0.04vw; /* 209xEspaciado interno */
+    text-align: center; /* Alineación del texto */
+    color: #ffffff; /* Color del texto */
+    margin-top: 6vw; /* Añadir espacio arriba */
+}
+
+.footer a {
+    font-size: 0.875em;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #F4A300; /* Cambiar color al pasar el ratón */
+}
+
+.footer_content {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Espacio entre secciones */
+    margin: 2.17vh 0; /* 20px Margen superior e inferior */ 
+}
+
+.footer_content div {
+    flex: 1 1 0%; /* Cada sección toma el mismo espacio */
+    margin-right: 2.17vh; /* 20px Espacio entre secciones */
+}
+
+.footer_content h4 {
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 1.08vh; /* 10px Espacio debajo del título */
+    
+}
+
+.contact_info p{
+    font-size: 0.875em;;/*14px*/
+    text-align: left;
+    margin-block-start: 2.74vh; /*16px*/
+    text-align: center; /* Centrar el título */
+}
+
+.social_media i {
+    font-size: 2em; /*32px Ajusta el tamaño de los íconos */
+    padding: 10px; /* 10px Espaciado entre íconos */
+}
+
+
+.quick_links  ul li {
+    list-style-type: none;
+    margin-block-start: 1.74vh; /*16px*/
+}
+
+.footer_bottom {
+    text-align: center; /* Centrar el texto en la parte inferior */
+    color: #ffffff;
+    margin-top: 5.98vh; /*55px*/
+    font-size: 0.75em; /*12px*/
+}
+/*----------------style Diseño responsivo---------------*/
+
+@media (max-width: 768px) {
+    .grid_layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "nav"
+            "sidebar"
+            "carousel"
+            "main"
+            "footer";
+    }
+
+    .main section {
+        width: 100%;
+        padding: 2vw;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .section_1 {
+        flex-direction: column;
+        gap: 1vw;
+    }
+    .section_3 {
+        flex-direction: column;
+        width: 100%;
+        gap: 2vw; /* Espacio entre las secciones */
+    }
+
+    .section_3_part {
+        width: 100%; /* Asegura que las partes ocupen el 100% del ancho en dispositivos pequeños */
+        margin-bottom: 2vw; /* Espacio entre las imágenes */
+    }
+
+    .section_3_part img {
+        width: 90%; /* Ajusta el tamaño de las imágenes en móviles */
+        height: auto;
+    }
+    .product_card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    body {
+        margin: 0; /* Asegúrate de que el body no tenga margen */
+        font-size: 0.5em !important; /*lo iconos de font awson escalan con font size*/
+    }
+    
+    .grid_layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "nav"
+            "sidebar"
+            "carousel"
+            "main"
+            "footer";
+    }
+    .header_links {
+        flex-direction: column;
+        margin-right: 0;
+    }
+    .sidebar{
+        width: 89%;
+    }
+
+    .product_card button {
+        padding: 1vw 2vw;
+    }
+    
+    .section_3 {
+        flex-direction: column;
+        gap: 1vw; /* Espacio más pequeño entre las secciones */
+    }
+
+    .section_3_part img {
+        width: 90%; /* Ajusta aún más el tamaño en pantallas muy pequeñas */
+        height: auto;
+    }
+
+    .search-bar input {
+        font-size: 1rem;
+        width: 90%;
+    }
+}

@@ -1,0 +1,370 @@
+* {
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    font-family: "Catamaran", sans-serif; /* Fuente */
+}
+
+body {
+    margin: 0; /* Asegúrate de que el body no tenga margen */
+}
+
+.grid_layout {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav nav"
+        "sidebar carousel"
+        "main main"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 50px auto 1fr auto;
+    min-height: 100vh;
+}
+
+/*----------------style Header---------------*/
+.header {
+    grid-area: header;
+    display: flex; /* lo uso para posicionar los elementos flex del header*/
+    justify-content: space-between; /* Asegura que el logo y los enlaces estén a los lados */
+    background-color: #F4A300; /* Amarillo Calabaza */
+}
+
+.logo {
+    display: flex; /* Activa flexbox en el logo */
+    align-items: center; /* Alinea verticalmente el logo */
+}
+
+.logo img {
+    margin-left: 2vw; /* Espaciado responsivo */
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    width: 30%; /* Ajusta el tamaño según sea necesario */
+}
+
+.header_links {
+    display: flex; /* Activa flexbox en los enlaces */
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
+    align-items: center;
+    gap: 5vw; /* Espacio responsivo entre los enlaces */
+    margin-right: 2vw;
+}
+
+.header_links i {
+    color: #1D3557;
+    font-size: 2rem; /* Los iconos de Font Awesome escalan con font size */
+}
+
+.header_links a {
+    text-decoration: none; 
+}
+
+.header_links span {
+    margin-left: 1vw;
+    font-family: "Catamaran", sans-serif;
+    font-size: 1.5rem; /* Tamaño de fuente responsivo */
+    font-weight: bolder;
+    color: #1D3557;
+}
+
+/*----------------style Nav---------------*/
+.nav {
+    grid-area: nav;
+    background-color: #1D3557;
+    padding: 1vw; /* Espaciado responsivo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0; /* Fija el elemento en la parte superior cuando se llega a su posición */
+    z-index: 10; /* Asegura que el nav quede encima de otros elementos */
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2vw; /* Espacio responsivo entre los enlaces */
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-family: "Catamaran", sans-serif;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    padding: 0.5vw 1vw; /* Espaciado responsivo */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Efecto suave de transición al pasar el cursor */
+}
+
+.nav-links a:hover {
+    color: #F4A300; /* Cambia el color de fondo al pasar el cursor por encima */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1vw; /* Espacio responsivo */
+}
+
+.search-bar i {
+    font-size: 1.8rem;
+    color: #FFF;
+}
+
+.search-bar input {
+    background-color: #FFF;
+    padding: 0.5vw; /* Aumenta el espaciado interno para mejor comodidad */
+    border: 3px solid #ddd;
+    border-radius: 60px;
+    width: 50vw; /* Ancho responsivo para el campo de búsqueda */
+    max-width: 500px; /* Limita el ancho máximo */
+    font-size: 1rem; /* Tamaño de fuente para el campo de búsqueda */
+    transition: border-color 0.3s; /* Suave transición del borde */
+}
+
+.search-bar input:focus {
+    outline: none; /* Elimina el contorno por defecto al hacer foco */
+    border-color: #4CAF50; /* Cambia el color del borde cuando el campo tiene foco */
+}
+
+/*----------------style Sidebar---------------*/
+.sidebar {
+    grid-area: sidebar;
+    background-color: #556B2F;
+    padding: 1vw; /* Espaciado responsivo */
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    margin: 2em 0 2em 4em;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem; /* Aumentar tamaño de 'Categorías' */
+    font-weight: normal; /* Normal */
+    margin-bottom: 1em; /* Espacio debajo del título */
+    color: #FFFF; /* Color encabezado */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 1em 0; /* Espaciado responsivo entre categorías */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #FFFF; /* Color letras */
+    font-family: "Catamaran", sans-serif; /* Fuente Catamaran */
+    font-size: 1.5rem; /* Tamaño responsivo */
+    font-weight: bold; /* Negrita */
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #d6aa1b; /* Cambia el color al pasar el cursor */
+}
+
+/*----------------style Carousel---------------*/
+.gallery {
+    grid-area: carousel;
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columna responsiva */
+    gap: 1.5vw; /* Espacio responsivo entre las imágenes */
+    padding: 1vw; /* Espaciado responsivo */
+    background-color: #FFFFFF;
+    margin: 2em; /* Espaciado responsivo */
+}
+
+.gallery_grid {
+    display: contents; /* Permitir que el grid de imágenes tome el formato del contenedor */
+}
+
+.gallery_grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/*----------------style Main---------------*/
+.main {
+    grid-area: main;
+    background-color: #556B2F;
+    padding: 1vw; /* Espaciado responsivo */
+    display: flex; /* Cambiar a flexbox */
+    flex-direction: column; /* Asegura que las secciones se apilen verticalmente */
+    height: 100%; /* Asegura que el main ocupe todo el espacio del contenedor */
+    margin: 2em; /* Espaciado responsivo */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.main section {
+    background-color: #556B2F;
+    padding: 1vw; /* Espaciado responsivo */
+    border-radius: 5px;
+    margin-bottom: 1em; /* Espacio responsivo entre secciones */
+    flex: 1; /* Permite que las secciones crezcan y ocupen el espacio disponible */
+}
+
+.main {
+    color: #FFFFFF;
+    font-size: 1.2rem; /* Tamaño de fuente responsivo */
+}
+
+/*------------------Seccion 1--------------------------------*/
+#titulo_destacado {
+    text-align: center; /* Centra el texto */
+    position: relative; /* Posiciona el título de forma relativa para poder usar el pseudo-elemento */
+    margin-bottom: 1.5em; /* Espacio debajo del título */
+}
+
+#titulo_destacado::after {
+    content: ""; /* Necesario para crear el pseudo-elemento */
+    display: block; /* Hace que sea un bloque */
+    width: 50%; /* Ancho de la línea (puedes ajustarlo) */
+    height: 2px; /* Altura de la línea */
+    background-color: white; /* Color de la línea */
+    margin: 10px auto 0; /* Centra la línea y añade margen superior */
+}
+
+.section_1 {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas en pantallas pequeñas */
+    gap: 1.5vw; /* Espacio responsivo entre tarjetas */
+    justify-content: space-around; /* Distribuye las tarjetas uniformemente */
+    padding: 1vw; /* Espaciado responsivo */
+}
+
+.product_card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.78);
+    overflow: hidden;
+    width: 100%; /* Ajusta el ancho de las tarjetas */
+    max-width: 300px; /* Limita el ancho máximo */
+    text-align: center; /* Centra el contenido de la tarjeta */
+    margin: 1em; /* Espaciado responsivo entre las tarjetas */
+}
+
+.product_card img {
+    width: 100%; /* Asegura que la imagen ocupe el ancho de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.product_card h3 {
+    font-size: 1.5rem; /* Tamaño de fuente responsivo para el título */
+    color: #1D3557; /* Color del título */
+    margin: 0.5em 0; /* Espaciado superior e inferior */
+}
+
+.product_card p {
+    font-size: 1rem; /* Tamaño de fuente para la descripción */
+    color: #555; /* Color de la descripción */
+    margin: 0.5em 0; /* Espaciado superior e inferior */
+}
+
+.product_card a {
+    display: inline-block; /* Hace que el enlace sea un bloque en línea */
+    background-color: #1D3557; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 0.5em 1em; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-decoration: none; /* Elimina subrayado */
+    transition: background-color 0.3s; /* Efecto suave de transición al pasar el cursor */
+}
+
+.product_card a:hover {
+    background-color: #4CAF50; /* Cambia el color de fondo al pasar el cursor */
+}
+
+/*------------------Seccion 2--------------------------------*/
+.section_2 {
+    display: flex; /* Cambia a flexbox */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-bottom: 2em; /* Espaciado inferior */
+}
+
+.section_2 iframe {
+    width: 80%; /* Ancho responsivo */
+    height: 400px; /* Altura del video */
+    border: none; /* Elimina el borde del iframe */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.section_3 {
+    display: flex; /* Cambia a flexbox */
+    justify-content: space-around; /* Distribuye las imágenes en el espacio disponible */
+    margin: 2em 0; /* Espaciado vertical */
+}
+
+.section_3 img {
+    width: 200px; /* Ancho fijo para las imágenes */
+    height: 200px; /* Altura fija para las imágenes */
+    border-radius: 50%; /* Hace las imágenes redondas */
+    transition: transform 0.3s; /* Efecto suave de transición al pasar el cursor */
+}
+
+.section_3 img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor */
+}
+
+/*------------------style Footer---------------*/
+.footer {
+    grid-area: footer;
+    background-color: #1D3557; /* Azul oscuro */
+    padding: 2vw; /* Espaciado responsivo */
+    text-align: center; /* Centra el contenido del footer */
+    color: white; /* Color del texto */
+}
+
+.footer p {
+    margin: 0.5em 0; /* Espaciado superior e inferior */
+}
+
+/*----------------Media Queries---------------*/
+@media (max-width: 768px) {
+    .grid_layout {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "carousel"
+            "footer";
+    }
+
+    .nav {
+        flex-direction: column; /* Cambia la dirección a columna para los enlaces */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .search-bar {
+        width: 100%; /* Campo de búsqueda ocupa el 100% en pantallas pequeñas */
+    }
+
+    .sidebar {
+        margin: 1em 0; /* Espaciado vertical en pantallas pequeñas */
+        width: 100%; /* Asegura que la sidebar ocupe el 100% del ancho */
+    }
+
+    .product_card {
+        max-width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
+    }
+
+    .section_2 iframe {
+        height: 300px; /* Reduce la altura del video en pantallas pequeñas */
+    }
+
+    .section_3 img {
+        width: 150px; /* Reduce el tamaño de las imágenes redondas en pantallas pequeñas */
+        height: 150px;
+    }
+}
+
