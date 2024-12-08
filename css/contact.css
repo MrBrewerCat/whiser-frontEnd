@@ -278,19 +278,22 @@ h3,h1 {
     resize: vertical; /* Permite al usuario cambiar el tamaño verticalmente si lo desea */
 }
 .contact_der button {
+    align-self: center;
     height: 60px; /* Ajusta la altura */
     width: 200px; /* Ajusta el ancho */
-    margin-top: 15px;
+    margin-top: 28px;
     padding: 10px;
-    font-family: "Catamaran", sans-serif;
-    font-size: 0.695em;
     background-color: #556B2F;
-    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
-
+.contact_der button p {
+    font-family: "Catamaran", sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    border: none; 
+}
 .contact_der button:hover {
     background-color: #F4A300;
 }

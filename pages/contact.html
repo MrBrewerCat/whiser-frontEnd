@@ -60,7 +60,7 @@
             
             <div class="contact_der">
                 <h3>Déjanos tu mensaje completando el formulario</h3>
-                    <form action="https://formspree.io/f/xyzyjkpl" method="post">
+                    <form id="formulario" action="https://formspree.io/f/xyzyjkpl" method="post">
                         <!-- Campo del nombre -->
                         <label for="nombre"><h1>Nombre: </h1></label>
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre..."> 
@@ -68,10 +68,10 @@
                         <label for="email"><h1>Correo electronico: </h1></label>
                         <input type="email" name="email" id="email" placeholder="Correo Electrónico...">
                         <!-- Campo para escribir el mensaje -->
-                        <label for="mensaje"><h1>Déjanos tu mensaje: </h1</label>
+                        <label for="mensaje"><h1>Déjanos tu mensaje: </h1></label>
                         <textarea name="mensaje" id="mensaje" placeholder="Escribe aqui..."></textarea>
                         <!-- boton de envio -->
-                        <button type="submit">Enviar</button>         
+                        <button type="submit"><p>Enviar</p></button>         
                     </form>   
             </div>
         </main>
@@ -110,7 +110,7 @@
             </div>
         </footer>
     </div> <!-- div grid layout -->
-
+    <script src="../JS/contact.js"></script>
 </body>
 
 </html>
