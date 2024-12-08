@@ -11,8 +11,8 @@ body {
     font-size: 1rem; /*lo iconos de font awson escalan con font size*/
 }
 
-strong{
-    font-weight: normal; /*solo lo quiero la importancia semantica, no el resaltado visual*/
+strong {
+    font-weight: normal; /* Elimina la negrita */
 }
 
 .grid_layout {
@@ -71,76 +71,70 @@ strong{
 }
 
 /*----------------style Nav---------------*/
-.nav {
+.navbar {
     grid-area: nav;
-    background-color: #1D3557;
-    padding: 1.08vh; /*10px*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #1D3557; /* Color de fondo */
+    padding: 1.08vh; /* Espaciado */
     position: sticky;
-    top: 0; /* Fija el elemento en la parte superior cuando se llega a su posición */
-    z-index: 10; /* Asegura que el nav quede encima de otros elementos */
+    top: 0;
+    z-index: 10;
 }
 
-.nav_links ul {
-    list-style-type: none;
-    display: flex;
-    gap: 2.17vh; /*20px*/
-}
-
-.nav_links a {
-    text-decoration: none;
-    color: white;
-    font-weight:lighter;
+/* Enlaces del menú de navegación */
+.navbar-nav .nav-link {
+    color: #FFFFFF; /* Color de los enlaces */
+    font-weight: lighter;
     font-size: 1.5em;
-    padding: 0.5vh 1vh; /*5px 10px*/
-    transition: background-color 0.3s ease; /* Efecto suave de transición al pasar el cursor */
+    transition: color 0.3s ease;
 }
 
-.nav_links a:hover {
-    color: #F4A300; /* Cambia el color de fondo al pasar el cursor por encima */
-}
-.search_bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5vh;
-}
-.search_bar span {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #F4A300; /* Color del hover */
 }
 
-.search_bar i {
-    font-size: 1.8rem;
-    color: #FFF;
+.navbar-collapse {
+    background-color: #1D3557; /* Fondo sólido para el dropdown */
+    margin-top: 10px; /* Espacio entre el botón y el desplegable */
+    width: 100%; /* Asegura que cubra el ancho completo de la pantalla */
+    position: relative; /* Posiciona el menú respecto al contenedor */
+    top: 72.5%; /* Coloca el dropdown justo debajo del botón */
+    left: 0; /* Alinea el menú a la izquierda */
+    z-index: 9; /* Asegura que esté por encima de otros elementos */
+}
+.navbar-collapse a{
+    padding-left: 20px;
 }
 
-.search_bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 600px; /* Limita el ancho en pantallas grandes */
+/* Botón de toggler (para pantallas pequeñas) */
+.navbar-toggler {
+    border-color: #1D3557 !important; /* Color del borde del botón en Calabaza */
+    background-color: #F4A300 !important; /* Color de fondo del botón en Calabaza */
 }
 
-.search_bar input {
+/* Estilo para las rayitas del ícono del desplegable */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23F4A300' viewBox='0 0 30 30'%3E%3Cpath stroke='%231D3557' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100%;
+}
+
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23F4A300' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(244, 163, 0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Estilo del campo de búsqueda */
+.form-control {
     background-color: #FFF;
-    padding: 0.8rem;
-    border: 0.1rem solid #ddd;
-    border-radius: 3rem;
-    flex-grow: 1; /* Permite que el input ocupe el espacio disponible */
-    width: 100%; /* Ancho completo del contenedor */
-    max-width: 500px; /* Limita el ancho máximo en pantallas grandes */
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    transition: border-color 0.3s ease;
 }
 
-.search_bar input:focus {
-    outline: none;
+.form-control:focus {
     border-color: #F4A300;
+    box-shadow: none;
 }
 
 /*----------------style Sidebar---------------*/
@@ -148,28 +142,32 @@ strong{
     grid-area: sidebar;
     width: 75%;
     background-color: #556B2F;
-    padding: 0.52vw; /*10px*/
-    border: 0.052vw solid #ddd; /*1px*/
-    border-radius: 1.30vw; /*25px*/
-    margin: 1.66vw 0 1.66vw 3.33vw; /*32px 0 32px 64px // 2em 0 2em 4em*/
+    padding: 1.5em; /* Ajustado para mayor consistencia */
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    margin: 32px 0 32px 64px;
+    transition: all 0.3s ease; /* Transición suave para el lado izquierdo */
 }
 
 .sidebar div {
-    background-color:#556B2F;
+    background-color: #556B2F;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 0.52vw; /*10px*/
-    border-radius: 0.78vw; /*15px*/
+    margin-bottom: 10px;
+    border-radius: 15px;
 }
 
-.sidebar h2 {
-    font-size: 1.5rem; /* Aumentar tamaño de 'Categorías' */
-    font-weight:normal; /* Negrita */
-    margin-bottom: 0.52vw;
-    color: #FFFF; /*color encabezado*/
+.sidebar h2  {
+    font-size: 1.8rem; /* Aumenté el tamaño de la fuente */
+    color: #fff;
     
+}
+
+.sidebar h2 button:hover {
+    color: #F4A300;
+    text-decoration: underline; /* Subrayado al pasar el cursor */
 }
 
 .sidebar h2::after{
@@ -185,50 +183,78 @@ strong{
     list-style-type: none;
     padding: 0;
     width: 100%;
-    gap: 2.60vw; /*50px*/
-
+    gap: 50px;
 }
 
 .sidebar ul li {
-    margin: 1.04vw 0; /*20px 0 Aumentar espaciado entre categorías */
+    margin: 20px 0;
 }
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #FFFF; /* Color letras */
-    font-size: 1.8rem; /* busco que las letras sean mas grandes que el h2 de categoria*/
-    transition: color 0.3s;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.sidebar strong {
+    font-weight: normal;
 }
 
 
-.sidebar ul li a:hover {
-    color: #d6aa1b; /* Cambia el color al pasar el cursor */
-}
-
-
-/*----------------style Carousel---------------*/
+/*----------------style Gallery---------------*/
 .gallery {
     grid-area: carousel;
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); /*repite  3 columnas 1 fraccion */
-    gap: 1.041vw; /*20px*/
-    padding: 0.52vw; /*10px*/
+    display: block; /* Mantiene el contenedor como bloque */
+    width: 95%; /* Ocupa el 95% del ancho disponible */
+    margin-top: 2em; /* Ajuste el margen superior */
+    margin-left: auto;
+    margin-right: auto; /* Centra el contenedor */
+    padding: 0;
     background-color: #FFFFFF;
-    margin:2em 3em 2em 1em;
 }
 
-.gallery_grid {
-    display:contents;/* Permitir que el grid de imágenes tome el formato del contenedor */
-    
+/* Estilo para el contenedor de las imágenes dentro del carrusel */
+
+.carousel {
+    position: relative; /* Esto es necesario para que los botones se alineen correctamente */
 }
 
-.gallery_grid img {
-    width: 100%;
-    height: auto;
-    object-fit:cover;
-    border-radius: 2.17vh; 
-    box-shadow: 0 0.20vw 0.40vw rgba(0, 0, 0, 0.5); /*0 4px 8px*/
+.carousel-inner {
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
 }
+
+.carousel-inner img {
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    max-width: 980px; /* Limita el ancho máximo de las imágenes */
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    max-height: 600px; /* Limita la altura máxima de las imágenes */
+    margin: 0 auto; /* Centra la imagen */
+    border-radius: 50px; /* Bordes redondeados */
+    box-shadow: 0 0.20vw 0.40vw rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para los controles (botones de siguiente y anterior) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #F4A300; /* Color calabaza */
+    width: 40px; /* Ajusta el tamaño de los botones */
+    height: 40px; /* Ajusta el tamaño de los botones */
+    border-radius: 50%; /* Los hace redondeados */
+    position: absolute;
+    top: 50%; /* Los coloca en el medio vertical */
+    transform: translateY(-50%); /* Centra verticalmente */
+}
+
+.carousel-control-prev {
+    left: 10px; /* Desplaza el botón hacia el costado izquierdo */
+}
+
+.carousel-control-next {
+    right: 10px; /* Desplaza el botón hacia el costado derecho */
+}
+
+
 
 /*----------------style Main---------------*/
 .main {
@@ -467,7 +493,12 @@ strong{
         padding: 2vw;
     }
 
-    .gallery {
+    .navbar-collapse {
+        width: 100vw; /* Asegura que el dropdown cubra el ancho completo en dispositivos pequeños */
+        margin-top: 10px; /* Espacio entre el botón y el menú */
+    }
+
+        .gallery {
         grid-template-columns: 1fr;
     }
 
@@ -516,10 +547,17 @@ strong{
             "main"
             "footer";
     }
+
     .header_links {
         flex-direction: column;
         margin-right: 0;
     }
+
+    .navbar-collapse {
+        width: 100vw; /* Asegura que el dropdown cubra el ancho completo en dispositivos pequeños */
+        margin-top: 10px; /* Espacio entre el botón y el menú */
+    }
+
     .sidebar{
         width: 89%;
     }
