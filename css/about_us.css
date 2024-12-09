@@ -22,10 +22,10 @@ body {
     display: grid;
     grid-template-areas:
         "header "
-        "nav "
+        "nav  "
         "main "
-        "footer";
-    grid-template-columns: 1fr 3;
+        "footer ";
+    grid-template-columns: 1fr;
     grid-template-rows: auto 4.1125rem auto 1fr auto;
     min-height: 100vh;
 }
@@ -145,6 +145,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23F4A300' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(244, 163, 0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+
 /* Estilo del campo de búsqueda */
 .form-control {
     background-color: #FFF;
@@ -174,22 +175,46 @@ body {
     color: #000000;
     font-size: 3em;
     text-decoration:underline;
-
 }
 
-.about_us img {
-    width: 100%;
-    max-width:fit-content;
-    max-height: 400px;
-    border: 3px solid #F4A300;
-    border-radius: 15px;
+.carousel {
+    position: relative; /* Esto es necesario para que los botones se alineen correctamente */
 }
 
-.image_row {
-    justify-self: start;
-    width: 100;
+.carousel-inner {
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
 }
 
+.carousel-inner img {
+    width: 75%; /* Ajusta el ancho relativo al contenedor */
+    max-width: 500px; /* Máximo ancho de las imágenes */
+    height: auto; /* Mantén la proporción de la imagen */
+    max-height: 400px; /* Máxima altura de las imágenes */
+    margin: 0 auto; /* Centra la imagen dentro del carrusel */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Efecto de sombra */
+}
+
+/* Estilo para los controles (botones de siguiente y anterior) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #F4A300; /* Color calabaza */
+    width: 40px; /* Ajusta el tamaño de los botones */
+    height: 40px; /* Ajusta el tamaño de los botones */
+    border-radius: 50%; /* Los hace redondeados */
+    position: absolute;
+    top: 50%; /* Los coloca en el medio vertical */
+    transform: translateY(-50%); /* Centra verticalmente */
+}
+
+.carousel-control-prev {
+    left: 10px; /* Desplaza el botón hacia el costado izquierdo */
+}
+
+.carousel-control-next {
+    right: 10px; /* Desplaza el botón hacia el costado derecho */
+}
 
 .reviews {
     padding: 2rem;
@@ -208,6 +233,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
+    
 }
 
 .review {
@@ -230,14 +256,11 @@ body {
 /*----------------style footer---------------*/
 .footer {
     grid-area: footer;
-    background-color: #1D3557;
-    /* Color de fondo */
-    padding: 0.04vw;
-    /* 209xEspaciado interno */
-    text-align: center;
-    /* Alineación del texto */
-    color: #ffffff;
-    /* Color del texto */
+    background-color: #1D3557; /* Color de fondo */
+    padding: 0.04vw; /* 209xEspaciado interno */
+    text-align: center; /* Alineación del texto */
+    color: #ffffff; /* Color del texto */
+    margin-top: 6vw; /* Añadir espacio arriba */
 }
 
 .footer a {
@@ -248,81 +271,71 @@ body {
 }
 
 .footer a:hover {
-    color: #F4A300;
-    /* Cambiar color al pasar el ratón */
+    color: #F4A300; /* Cambiar color al pasar el ratón */
 }
 
 .footer_content {
-    display: flex;
-    /* Usar flexbox para alinear los elementos */
-    justify-content: space-between;
-    /* Espacio entre secciones */
-    margin: 2.17vh 0;
-    /* 20px Margen superior e inferior */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Espacio entre secciones */
+    margin: 2.17vh 0; /* 20px Margen superior e inferior */ 
 }
 
 .footer_content div {
-    flex: 1 1 0%;
-    /* Cada sección toma el mismo espacio */
-    margin-right: 2.17vh;
-    /* 20px Espacio entre secciones */
+    flex: 1 1 0%; /* Cada sección toma el mismo espacio */
+
 }
 
 .footer_content h4 {
     font-size: 1em;
     color: #ffffff;
-    margin-bottom: 1.08vh;
-    /* 10px Espacio debajo del título */
-
+    margin-bottom: 1.08vh; /* 10px Espacio debajo del título */
+    
 }
 
-.contact_info p {
-    font-size: 0.875em;
-    ;
-    /*14px*/
+.contact_info p{
+    font-size: 0.875em;;/*14px*/
     text-align: left;
-    margin-block-start: 2.74vh;
-    /*16px*/
-    text-align: center;
-    /* Centrar el título */
+    margin-block-start: 2.74vh; /*16px*/
+    text-align: center; /* Centrar el título */
 }
 
 .social_media i {
-    font-size: 2em;
-    /*32px Ajusta el tamaño de los íconos */
-    padding: 10px;
-    /* 10px Espaciado entre íconos */
+    font-size: 2em; /*32px Ajusta el tamaño de los íconos */
+    padding: 10px; /* 10px Espaciado entre íconos */
 }
 
+.quick_links h4 {
+    margin-left:30px;
+    text-align: center;
+}
 
-.quick_links ul li {
+.quick_links  ul li {
     list-style-type: none;
-    margin-block-start: 1.74vh;
-    /*16px*/
+    margin-block-start: 1.74vh; /*16px*/
 }
 
 .footer_bottom {
-    text-align: center;
-    /* Centrar el texto en la parte inferior */
+    text-align: center; /* Centrar el texto en la parte inferior */
     color: #ffffff;
-    margin-top: 5.98vh;
-    /*55px*/
-    font-size: 0.75em;
-    /*12px*/
+    margin-top: 5.98vh; /*55px*/
+    font-size: 0.75em; /*12px*/
 }
-
 /*----------------style Diseño responsivo---------------*/
 
 @media (max-width: 768px) {
     .grid_layout {
-        grid-template-columns: 1fr;
         grid-template-areas:
             "header"
             "nav"
             "main"
             "footer";
+        grid-template-columns: 1fr;
     }
-
+    .carousel-inner img {
+        width: 90%; /* Ocupa más espacio en pantallas pequeñas */
+        max-width: 100%; /* Permite que las imágenes sean más flexibles */
+        max-height: 300px; /* Reduce la altura máxima */
+    }
 }
 
 @media (max-width: 600px) {
@@ -351,6 +364,13 @@ body {
         font-size: 1rem;
         width: 90%;
     }
+
+    .carousel-inner img {
+        width: 90%; /* Ocupa más espacio en pantallas pequeñas */
+        max-width: 100%; /* Permite que las imágenes sean más flexibles */
+        max-height: 300px; /* Reduce la altura máxima */
+    }
+
 .reviews h2 {
         font-size: 1.5em;
     }
@@ -359,3 +379,9 @@ body {
     grid-template-columns: 1fr;
     }
 }
+
+@media (min-width: 1200px) {
+    .carousel-inner img {
+        width: 60%; /* Reduce ligeramente el tamaño para pantallas grandes */
+        max-width: 700px; /* Aumenta el máximo ancho */
+        max-height: 500px; /* Aumenta el máximo alto */

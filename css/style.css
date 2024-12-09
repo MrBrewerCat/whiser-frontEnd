@@ -440,7 +440,7 @@ strong {
 
 .footer_content div {
     flex: 1 1 0%; /* Cada sección toma el mismo espacio */
-    margin-right: 2.17vh; /* 20px Espacio entre secciones */
+
 }
 
 .footer_content h4 {
@@ -462,6 +462,10 @@ strong {
     padding: 10px; /* 10px Espaciado entre íconos */
 }
 
+.quick_links h4 {
+    margin-left:30px;
+    text-align: center;
+}
 
 .quick_links  ul li {
     list-style-type: none;
@@ -559,7 +563,9 @@ strong {
     }
 
     .sidebar{
-        width: 89%;
+        flex-direction: column;
+        width:330px;
+        margin: 20px auto  0 auto;
     }
 
     .product_card button {
