@@ -41,6 +41,7 @@ function enviarFormulario(event) {
     if (verificarCampos(nombre, email, mensaje)) {
         // Si los campos están completos, mostrar el mensaje de agradecimiento
         alert('¡Gracias por enviar su mensaje!');
+        document.getElementById('formulario').submit(); // Envía el formulario
     } else {
         // Si faltan campos, mostrar el mensaje de error
         alert('Por favor complete todos los campos antes de enviar.');

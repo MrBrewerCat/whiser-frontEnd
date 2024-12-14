@@ -260,7 +260,6 @@ body {
     padding: 0.04vw; /* 209xEspaciado interno */
     text-align: center; /* Alineación del texto */
     color: #ffffff; /* Color del texto */
-    margin-top: 6vw; /* Añadir espacio arriba */
 }
 
 .footer a {
@@ -385,3 +384,5 @@ body {
         width: 60%; /* Reduce ligeramente el tamaño para pantallas grandes */
         max-width: 700px; /* Aumenta el máximo ancho */
         max-height: 500px; /* Aumenta el máximo alto */
+    }
+}
