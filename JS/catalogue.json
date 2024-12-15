@@ -1,0 +1,182 @@
+[
+    {
+        "id": 0,
+        "nombre": "Apoya vasos Whiser",
+        "descripcion": "Apoya vasos Whiser Modelo Tabby - pack por 6 unidades.",
+        "precio": "600.00",
+        "imagen": "./image/poya vaso.jpeg",
+        "categoria": "articulos",
+        "whiser": true
+    },
+    {
+        "id": 1,
+        "nombre": "Baltic Porter Whiser",
+        "descripcion": "Cerveza negra estilo Baltic Porter - por unidad.",
+        "precio": "1600.00",
+        "imagen": "./image/lata baltic porter.jpeg",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 2,
+        "nombre": "Steam Beer Anchor Brewing C.O.",
+        "descripcion": "Six-pack Steam Anchor.",
+        "precio": "7600.00",
+        "imagen": "./image/anchor steam.jpg",
+        "categoria": "cervezas",
+        "whiser": false
+    },
+    {
+        "id": 3,
+        "nombre": "Remeras Whiser Brew",
+        "descripcion": "Remeras de algodón estampadas, varios colores, diseños y talles.",
+        "precio": "4200.00",
+        "imagen": "./image/remera_gorro.png",
+        "categoria": "indumentaria",
+        "whiser": true
+    },
+    {
+        "id": 4,
+        "nombre": "Gorro Whiser Craft",
+        "descripcion": "Gorros tejidos con logo de Whiser.",
+        "precio": "2200.00",
+        "imagen": "./image/remeras y gorros.png",
+        "categoria": "indumentaria",
+        "whiser": true
+    },
+    {
+        "id": 5,
+        "nombre": "Imperial IPA Whiser",
+        "descripcion": "Cerveza artesanal estilo IPA - por unidad.",
+        "precio": "1800.00",
+        "imagen": "./image/lata ipa.jpeg",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 6,
+        "nombre": "Marzen Whiser",
+        "descripcion": "Cerveza artesanal Marzenbier - por unidad.",
+        "precio": "900.00",
+        "imagen": "./image/lata marzen.png",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 7,
+        "nombre": "California Lager Beer Anchor Brewing C.O.",
+        "descripcion": "Six-pack California Lager  Anchor.",
+        "precio": "7600.00",
+        "imagen": "./image/anchor lager.jpg",
+        "categoria": "cervezas",
+        "whiser": false
+    },
+    {
+        "id": 8,
+        "nombre": "Pumpking Ale Whiser",
+        "descripcion": "Cerveza artesanal autor pumpking ale - por unidad.",
+        "precio": "900.00",
+        "imagen": "./image/pumpking ALE.jpeg",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 9,
+        "nombre": "kölsh Whiser",
+        "descripcion": "Cerveza artesanal estilo kölsh - por unidad.",
+        "precio": "1500.00",
+        "imagen": "./image/lata kolsh.jpeg",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 10,
+        "nombre": "Liberty Ale Anchor Brewing C.O.",
+        "descripcion": "Six-pack Liberty Ale Anchor Brewing C.O. San Francisco.",
+        "precio": "7600.00",
+        "imagen": "./image/anchor liberty.jpg",
+        "categoria": "cervezas",
+        "whiser": false
+    },
+    {
+        "id": 11,
+        "nombre": "Mistery box Samuel Smith",
+        "descripcion": "Caja misteriosa, contiene 4 nproductos Samuel Smith's Brewery al azar",
+        "precio": "20000.00",
+        "imagen": "./image/samuel_Smith.png",
+        "categoria": "indumentaria",
+        "whiser": true
+    },
+    {
+        "id": 12,
+        "nombre": "Red Ale Whiser",
+        "descripcion": "Cerveza estilo Red Ale - por unidad.",
+        "precio": "1700.00",
+        "imagen": "./image/lata redale.jpeg",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 13,
+        "nombre": "Destapador Premium",
+        "descripcion": "Destapador de acero inoxidable - edición Whiser.",
+        "precio": "1200.00",
+        "imagen": "./image/destapador whiser.jpeg",
+        "categoria": "articulos",
+        "whiser": true
+    },
+    {
+        "id": 14,
+        "nombre": "Delirium Tremens",
+        "descripcion": " cerveza belga pale ale de triple fermentación producida por la cervecería Huyghe en Melle, provincia de Flandes Oriental - botella 330ml.",
+        "precio": "9000.00",
+        "imagen": "./image/delirium_tremens.png",
+        "categoria": "cervezas",
+        "whiser": false
+    },
+    {
+        "id": 15,
+        "nombre": "Pack de Degustación Whiser",
+        "descripcion": "Pack con 4 estilos diferentes de cerveza artesanal Whiser. (los productos contenidos en el pack quedan sujetos a stock en disposicion)",
+        "precio": "4500.00",
+        "imagen": "./image/lata_botellas.png",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 16,
+        "nombre": "Bolsa de Tela Whiser",
+        "descripcion": "Bolsa ecológica reutilizable con diseño exclusivo.",
+        "precio": "800.00",
+        "imagen": "./image/bolsa whiser.png",
+        "categoria": "articulos",
+        "whiser": true
+    },
+    {
+        "id": 17,
+        "nombre": "Delirium Tremens Nocturnum",
+        "descripcion": "Belgiam strong ale producida por la cervecería Huyghe en Melle, provincia de Flandes Oriental - botella 330ml.",
+        "precio": "11000.00",
+        "imagen": "./image/delirium_tremens_n.png",
+        "categoria": "cervezas",
+        "whiser": false
+    },
+    {
+        "id": 18,
+        "nombre": "Pack de Latas Whiser",
+        "descripcion": "Pack con 6 latas surtidas de cervezas Whiser.",
+        "precio": "5200.00",
+        "imagen": "./image/latas.png",
+        "categoria": "cervezas",
+        "whiser": true
+    },
+    {
+        "id": 19,
+        "nombre": "Poster Whiser October Fest 2024",
+        "descripcion": "Poster  edición limitada.",
+        "precio": "500.00",
+        "imagen": "./image/whiser_cover.png",
+        "categoria": "articulos",
+        "whiser": true
+    }
+]
