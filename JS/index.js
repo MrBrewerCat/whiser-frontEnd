@@ -1,3 +1,10 @@
+
+const actualizarContador = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const totalItems = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
+    document.getElementById("contador-carrito").textContent = totalItems;
+};
+
 // Función para cargar el archivo JSON
 function cargarProductos() {
     const respuesta = fetch('./js/catalogue.json'); // Ruta del archivo JSON
@@ -91,7 +98,12 @@ function agregarProductoAlLocalStorage(producto) {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 
     alert(`${producto.nombre} ha sido agregado a tu carrito.`);
+    actualizarContador();
 }
 
 // Llama a la función al cargar la página
-document.addEventListener('DOMContentLoaded', cargarProductos);
+document.addEventListener('DOMContentLoaded', function(){
+
+cargarProductos();
+actualizarContador();
+});

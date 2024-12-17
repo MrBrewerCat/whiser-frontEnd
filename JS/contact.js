@@ -1,4 +1,9 @@
 //FUNCIONES//
+const actualizarContador = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const totalItems = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
+    document.getElementById("contador-carrito").textContent = totalItems;
+};
 
 // Función para verificar si los campos del formulario están completos
 function verificarCampos(nombre, email, mensaje) {
@@ -56,4 +61,5 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('Formulario no encontrado');
     }
+    actualizarContador();
 });

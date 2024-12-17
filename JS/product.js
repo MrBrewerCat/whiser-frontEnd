@@ -1,6 +1,13 @@
 // Declaramos un array vacío para los productos
 let productos = [];
 
+const actualizarContador = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const totalItems = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
+    document.getElementById("contador-carrito").textContent = totalItems;
+};
+
+
 // Función para cargar productos desde el archivo JSON 
 function cargarProductos() {
     fetch('../js/catalogue.json') // Ruta al archivo JSON
@@ -83,6 +90,7 @@ function agregarAlCarrito(idProducto) {
 
         alert(`${producto.nombre} ha sido agregado al carrito.`);
     }
+    actualizarContador();
 }
 
 // Función para mostrar los productos en la consola
@@ -100,4 +108,5 @@ function mostrarProductos() {
 // Llamamos a las funciones cuando se carga la página
 document.addEventListener('DOMContentLoaded', function () {
     cargarProductos(); // Cargamos los productos desde el JSON
+    actualizarContador();
 });

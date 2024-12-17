@@ -8,14 +8,23 @@ function formatearPrecio(precio) {
     }).format(precio);
 }
 
+// Función global para actualizar el contador del carrito
+const actualizarContador = () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const totalItems = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad, 0);
+    document.getElementById("contador-carrito").textContent = totalItems;
+};
+
 // Cargar el carrito desde LocalStorage
 function cargarCarrito() {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperamos carrito
-    const contenedorCarrito = document.querySelector('.productos-carrito'); // Contenedor de productos
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const contenedorCarrito = document.querySelector('.productos-carrito');
     contenedorCarrito.innerHTML = ''; // Limpiar el contenedor
 
     if (carrito.length === 0) {
         contenedorCarrito.innerHTML = '<p>El carrito está vacío.</p>';
+        document.getElementById('total-carrito').textContent = formatearPrecio(0);
+        actualizarContador();
         return;
     }
 
@@ -49,51 +58,50 @@ function cargarCarrito() {
         itemCarrito.querySelector('.cantidad').addEventListener('change', (e) => editarCantidad(e, index));
     });
 
-    // Mostrar el total del carrito con el formato adecuado
     document.getElementById('total-carrito').textContent = formatearPrecio(total);
+    actualizarContador();
 }
 
 // Eliminar producto del carrito
 function eliminarProducto(index) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    carrito.splice(index, 1); // Eliminar el producto del carrito
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.splice(index, 1); // Eliminar el producto
     localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar el carrito actualizado
-    cargarCarrito(); // Recargar el carrito en la vista
+    cargarCarrito(); // Recargar la vista
 }
 
 // Editar cantidad de productos
 function editarCantidad(event, index) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const nuevaCantidad = parseInt(event.target.value);
 
     if (nuevaCantidad > 0) {
         carrito[index].cantidad = nuevaCantidad; // Actualizar la cantidad
     } else {
-        carrito.splice(index, 1); // Eliminar el producto si la cantidad es 0
+        carrito.splice(index, 1); // Eliminar si cantidad es 0
     }
 
     localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar cambios
-    cargarCarrito(); // Recargar el carrito en la vista
+    cargarCarrito(); // Recargar la vista
+    actualizarContador();
 }
 
 // Función para vaciar el carrito
 function vaciarCarrito() {
-    localStorage.removeItem('carrito'); // Eliminar el carrito de LocalStorage
-    cargarCarrito(); // Recargar el carrito vacío en la vista
-
-    // Actualizar el total a cero
-    document.getElementById('total-carrito').textContent = formatearPrecio(0);
+    localStorage.removeItem('carrito'); // Eliminar del LocalStorage
+    cargarCarrito(); // Recargar la vista vacía
 }
 
-// Función para redirigir a la página de facturación y mostrar alerta
+// Función para redirigir a la página de facturación
 function realizarCompra() {
     alert("A continuación se lo redirigirá al sitio de facturación y medios de pago.");
-    window.location.href = '../pages/coming_soon.html'; // Redirige a la página de facturación
+    window.location.href = '../pages/coming_soon.html';
 }
 
-// Inicializamos la función al cargar la página
+// Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', function () {
     cargarCarrito();
+    actualizarContador();
 
     // Evento para vaciar el carrito
     document.getElementById('vaciar-carrito').addEventListener('click', vaciarCarrito);

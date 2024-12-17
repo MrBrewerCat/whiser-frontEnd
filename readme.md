@@ -1,3 +1,6 @@
+//  NECESITA SER ACTUALIZADO, EN ESPERA DE VER CLASE DE API//
+
+
 **Proyecto Integrador - Comisión 24231 -  Front-End JS de Talento Tech**
 **Alumno: Espinosa Matias Alejandro**
 *Fase: Pre entrega* 
