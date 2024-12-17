@@ -64,13 +64,22 @@
         </nav>
 
         <main class="main">
-
             <h2 id="titulo_destacado">Productos</h2>
-
             <section class="section_1">
-
+                <!-- las card de los productos se crean dinámicamente desde product.js -->
             </section>
         </main>
+        
+        <!-- Modal (inicialmente oculto) -->
+        <div id="modal-detalles" class="modal">
+            <div class="modal-contenido">
+                <img id="detalle-imagen" src="" alt="Imagen del producto">
+                <h3 id="detalle-nombre"></h3>
+                <p id="detalle-descripcion"></p>
+                <p id="detalle-precio"></p>
+                <button id="cerrar-modal">Cerrar</button>
+            </div>
+        </div>               
 
         <footer class="footer">
             <div class="footer_content">

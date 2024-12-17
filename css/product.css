@@ -1,4 +1,4 @@
- * {
+* {
     box-sizing: border-box; /* Incluye padding y border en el ancho total */
     margin: 0; /* Elimina márgenes por defecto */
     padding: 0; /* Elimina padding por defecto */
@@ -185,16 +185,17 @@ strong{
 
 .product_card {
     background-color: #fff;
-    border: 0.10vh solid #ddd; /*1px*/
-    border-radius: 8px; /*8px*/
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.78); /*0 4px 84px*/
+    border: 0.10vh solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.78);
     overflow: hidden;
-    width: 18%; /* Ajusta el ancho de las tarjetas 300px*/
+    width: 18%;
     text-align: center;
-    padding: 1.08vh; /*10px*/
+    padding: 1.08vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+
 }
 
 .product_card img {
@@ -206,39 +207,111 @@ strong{
 
 .product_card h4 {
     font-size: 1.2em;
-    margin: 1.08vh; /*10px*/
+    margin: 1.08vh;
     color: #333;
-    min-height: 3.5vh; /* Ajusta altura */
+    display: flex;
+    flex-wrap: wrap; /* Permite que el texto del título se divida en varias líneas */
+    justify-content: center; /* Centra el título */
+    min-height: 6.5vh;
 }
 
 .product_card p {
     font-size: 0.9em;
     color: #666;
     margin: 1.08vh 0;
-    min-height: 3.5vh; /* Ajusta la altura para mantener la consistencia entre tarjetas */
+    min-height: 3.5vh;
+    display: flex;
+    justify-content: center; /* Asegura que el precio esté centrado */
 }
 
 .product_card .price {
     font-weight: bold;
-    min-height: 2.5vh; /* Asigna una altura mínima para el precio */
+    min-height: 5.5vh;
 }
 
 .product_card button {
     background-color: #1D3557;
     color: #fff;
     border: none;
-    border-radius: 0.54vh; /*5px*/
-    padding: 1.08vh 2.17vh; /*10px 20px*/
+    width: 7vw; /*Ajusto el ancho de los botones*/
+    border-radius: 0.54vh;
+    padding: 1.08vh 2.17vh;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: auto; /* Empuja el botón al final de la tarjeta */
-    align-self: stretch; /* Asegura que el botón tenga el mismo ancho en todas las tarjetas */
+    margin-bottom: auto;
+    align-self: stretch; /* Asegura que el botón tenga el mismo ancho */
 }
 
 
 .product_card button:hover {
     background-color: #F4A300;
 }
+
+---------------------modal---------------------------
+
+/* Estilo para el modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Ancho por defecto para pantallas grandes */
+    height: auto;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    z-index: 1000;
+    overflow-y: auto; /* Scroll en caso de contenido extenso */
+}
+/* Cuando el modal está visible, se desplaza hacia la derecha */
+.modal.activo {
+    display: flex;
+    left: 4; /* Modal aparece desde la izquierda */
+}
+
+/* Estilo para el contenedor del modal */
+.modal-contenido {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width:100%;
+    max-width: 250px;
+    text-align:center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-contenido img{
+    
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+/* Cuando el modal se activa, desplazamos el main hacia la derecha */
+body.modal-abierto .main {
+    transform: translateX(6.6%); /* Mueve el main a la derecha */
+    transition: transform 0.3s ease; /* Transición suave */
+    scale: 93.7%;
+}
+
+/* Botón de cierre */
+#cerrar-modal {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cerrar-modal:hover {
+    background-color: #d32f2f;
+}
+
+
+
 
 /*----------------style footer---------------*/
 .footer {
@@ -307,7 +380,7 @@ strong{
     margin-top: 5.98vh; /*55px*/
     font-size: 0.75em; /*12px*/
 }
-/*----------------style Diseño responsivo---------------*/
+/* Media query para tabletas y dispositivos pequeños */
 
 @media (max-width: 768px) {
     .grid_layout {
@@ -336,6 +409,7 @@ strong{
         flex-direction: column;
         gap: 1vw;
     }
+
     .section_3 {
         flex-direction: column;
         width: 100%;
@@ -351,18 +425,44 @@ strong{
         width: 90%; /* Ajusta el tamaño de las imágenes en móviles */
         height: auto;
     }
+
     .product_card {
         width: 100%;
     }
+
+    /* Ajuste del botón en la tarjeta de producto */
+    .product_card button {
+        padding: 1vw 2vw;
+        width: auto;  /* Se ajusta automáticamente */
+        max-width: 200px; /* Limita el tamaño máximo del botón */
+        margin: 0 auto; /* Centra el botón */
+        font-size: 1em; /* Ajusta el tamaño del texto */
+    }
+
+    .modal-contenido {
+        background-color: white;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal {
+        width: 90%;
+        height: 90%; /* Ocupa el 90% de la pantalla */
+        top: 5%;
+        left: 5%;
+        transform: none; /* No es necesario centrar con translate */
+    }
 }
 
+/* Media query para pantallas muy pequeñas (móviles) */
 @media (max-width: 600px) {
-    
     body {
         margin: 0; /* Asegúrate de que el body no tenga margen */
         font-size: 0.5em !important; /*lo iconos de font awson escalan con font size*/
     }
-    
+
     .grid_layout {
         grid-template-columns: 1fr;
         grid-template-areas: 
@@ -371,18 +471,25 @@ strong{
             "main"
             "footer";
     }
+
     .header_links {
         flex-direction: column;
         margin-right: 0;
     }
-    .sidebar{
+
+    .sidebar {
         width: 89%;
     }
 
+    /* Ajuste más específico del botón en pantallas pequeñas */
     .product_card button {
         padding: 1vw 2vw;
+        width: 60vw;  /* Aumenta ligeramente el tamaño en pantallas pequeñas */
+        max-width: 200px; /* Limita el tamaño máximo */
+        margin: 0 auto; /* Centra el botón */
+        font-size: 0.9em; /* Reduce un poco el tamaño del texto */
     }
-    
+
     .section_3 {
         flex-direction: column;
         gap: 1vw; /* Espacio más pequeño entre las secciones */
@@ -396,5 +503,15 @@ strong{
     .search-bar input {
         font-size: 1rem;
         width: 90%;
+    }
+
+    .modal {
+        width: 100%; /* Ocupa el ancho completo */
+        height: 100%; /* Ocupa el alto completo */
+        top: 0;
+        left: 0;
+        transform: none; /* No es necesario centrar con translate */
+        border-radius: 0; /* Sin bordes redondeados */
+        padding: 16px; /* Mantén algo de padding */
     }
 }

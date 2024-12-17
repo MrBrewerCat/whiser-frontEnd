@@ -7,7 +7,6 @@ const actualizarContador = () => {
     document.getElementById("contador-carrito").textContent = totalItems;
 };
 
-
 // Función para cargar productos desde el archivo JSON 
 function cargarProductos() {
     fetch('../js/catalogue.json') // Ruta al archivo JSON
@@ -35,7 +34,6 @@ function formatearPrecio(precio) {
     }).format(precio);
 }
 
-
 // Función para crear cards de productos en la sección .section_1 de product.html
 function crearCardProductos() {
     const container = document.querySelector('.section_1');
@@ -45,25 +43,35 @@ function crearCardProductos() {
         const card = document.createElement('div');
         card.classList.add('product_card');
 
-         // Formateamos el precio
+        // Formateamos el precio
         const precioFormateado = formatearPrecio(producto.precio);
 
         card.innerHTML = `
             <img src=".${producto.imagen}" alt="${producto.nombre}">  
             <h4>${producto.nombre}</h4>
-            <p>${producto.descripcion}</p>
             <p class="price">${precioFormateado}</p>
-            <button class="comprar" data-id="${producto.id}">Comprar</button>
-        `;
+            <div><span><button class="ver-mas" data-id="${producto.id}">Ver más</button></span>
+            <span><button class="comprar" data-id="${producto.id}">Comprar</button></span></div>
+        `;// se quito <p>${producto.descripcion}</p>, para que se visualize desde el ver mas y tome sentindo
 
         container.appendChild(card);
+    });
+
+    // Agregar el evento a los botones de "Ver más"
+    const botonesVerMas = document.querySelectorAll('.ver-mas');
+    botonesVerMas.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const idProducto = boton.dataset.id;
+            mostrarDetallesModal(idProducto); // Mostrar los detalles en el modal
+        });
     });
 
     // Agregar el evento a los botones de compra
     const botonesComprar = document.querySelectorAll('.comprar');
     botonesComprar.forEach(boton => {
         boton.addEventListener('click', () => {
-            agregarAlCarrito(boton.dataset.id); // Usamos el ID del producto para agregarlo al carrito
+            const idProducto = boton.dataset.id;
+            agregarAlCarrito(idProducto); // Agregar al carrito
         });
     });
 }
@@ -93,10 +101,43 @@ function agregarAlCarrito(idProducto) {
     actualizarContador();
 }
 
+function mostrarDetallesModal(idProducto) {
+    const producto = productos.find(prod => prod.id == idProducto);
+    
+    if (producto) {
+        // Mostrar la información del producto en el modal
+        document.getElementById('detalle-imagen').src = `.${producto.imagen}`;
+        document.getElementById('detalle-nombre').textContent = producto.nombre;
+        document.getElementById('detalle-descripcion').textContent = producto.descripcion;
+        document.getElementById('detalle-precio').textContent = formatearPrecio(producto.precio);
+
+        // Mostrar el modal
+        document.getElementById('modal-detalles').classList.add('activo');
+        document.body.classList.add('modal-abierto'); // Activar el desplazamiento
+    }
+}
+
+// Función para cerrar el modal
+document.getElementById('cerrar-modal').addEventListener('click', () => {
+    document.getElementById('modal-detalles').classList.remove('activo');
+    document.body.classList.remove('modal-abierto'); // Restaurar el desplazamiento
+});
+
+// Detectar clic fuera del modal para cerrarlo
+document.getElementById('modal-detalles').addEventListener('click', (evento) => {
+    const modalContent = document.querySelector('.modal-contenido'); // Clase del contenido interno
+    if (!modalContent.contains(evento.target)) { // Si el clic no fue dentro del contenido
+        document.getElementById('modal-detalles').classList.remove('activo');
+        document.body.classList.remove('modal-abierto'); // Restaurar el desplazamiento
+    }
+});
+
 // Función para mostrar los productos en la consola
 function mostrarProductos() {
     console.log(`LISTADO DE LOS ${productos.length} PRODUCTOS DISPONIBLES:`);
-    console.log('=================================');
+    console.log('========================================');
+    console.log('');
+    console.log('-------------------------');
     productos.forEach(producto => {
         console.log(`Producto: ${producto.nombre}`);
         console.log(`Descripción: ${producto.descripcion}`);
